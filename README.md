@@ -1,6 +1,6 @@
 # jdbc-mysql-demo
 
-java jdbc mysql demo
+标签： java jdbc mysql demo
 
 ---
 jar包 mysql connector/j 版本5.1.40
@@ -119,12 +119,17 @@ public class Demo {
 					+ " values (?,?,?,?,?)";
 			// 预处理SQL
 			stmt = conn.prepareStatement(sql);
-			// 设置第一个绑定参数 id
+			// 设置第一个绑定数据 id
 			stmt.setInt(1, 1);
+			// 设置第二个绑定数据 username
 			stmt.setString(2, "liuwel");
+			// 设置第三个绑定数据 password
 			stmt.setString(3, "passwd");
+			// 设置第四个绑定数据 createdAt
 			stmt.setDate(4, new java.sql.Date(System.currentTimeMillis()));
+			// 设置第五个绑定数据 updatedAt 
 			stmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
+			// 执行sql 返回受影响行
 			affectedRow = stmt.executeUpdate();
 			if (affectedRow > 0) {
 				System.out.println("增加成功！");
